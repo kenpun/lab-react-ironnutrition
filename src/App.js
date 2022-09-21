@@ -1,39 +1,24 @@
 import foodsData from './foods.json'
 import FoodBox from './components/FoodBox'
 import { useState } from "react"
-import { Divider } from "antd"
-import { v4 as uuidv4 } from 'uuid';
+import { Divider, Row } from "antd"
 import './App.css';
+import AddFoodForm from './components/AddFoodForm';
 
 function App() {
   const [foods, setFoods] = useState(foodsData)
 
   return (
     <div className="App">
-      
-      {/* <FoodBox food={ {
-        name: "Orange",
-        calories: 85,
-        image: "https://i.imgur.com/abKGOcv.jpg",
-        servings: 1
-      }} /> */}
-      
+      <AddFoodForm />
       <Divider>Food List</Divider>
-      {foods.map(food => 
-        <FoodBox food={food}/>
-      )}
-      
-      
-
-      {/* {foods.map(food => {
-        return (
-          <div>
-          
-            <p> {food.name} </p>
-          <img src={food.image} alt="food" width={"100px"} />
-          </div>
-      )})} */}
+      <Row style={{ width: '100%', justifyContent: 'center' }}>
+        {foods.map(food => 
+          <FoodBox food={food}/>
+        )}
+      </Row>
     </div>
+
   );
 }
 
