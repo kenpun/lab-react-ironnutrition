@@ -1,23 +1,27 @@
-import logo from './logo.svg';
+import foodsData from './foods.json'
+import { useState } from "react"
+import { Divider } from "antd"
 import './App.css';
 
 function App() {
+  const [foods, setFoods] = useState(foodsData)
+  
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      
+      <Divider>Food List</Divider>
+      {foods.map(food => {
+        return (
+          <div>
+            <p> {food.name} </p>
+          <img src={food.image} alt="food" width={"100px"} />
+          </div>
+      )})}
+
+
+      
+
     </div>
   );
 }
