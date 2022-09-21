@@ -11,21 +11,28 @@ function App() {
   return (
     <div className="App">
       
-      <FoodBox food={ {
+      {/* <FoodBox food={ {
         name: "Orange",
         calories: 85,
         image: "https://i.imgur.com/abKGOcv.jpg",
         servings: 1
-      }} />
+      }} /> */}
       
       <Divider>Food List</Divider>
-      {foods.map(food => {
+      {foods.map(food => 
+        <FoodBox food={food}/>
+      )}
+      
+      
+
+      {/* {foods.map(food => {
         return (
           <div>
+          
             <p> {food.name} </p>
           <img src={food.image} alt="food" width={"100px"} />
           </div>
-      )})}
+      )})} */}
     </div>
   );
 }
